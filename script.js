@@ -4,7 +4,7 @@ let inputData = prompt('Enter book data separate by ";"');
 while (inputData) {
     if (inputData){
         inputData = inputData.split(";");
-        if(findBook(library, inputData[0])){
+        if(findBook(library, inputData[0]) === -1){
             library.push(new Book(inputData[0],inputData[1],inputData[2],inputData[3]));
         }
         else{
@@ -20,6 +20,7 @@ function findBook(library, isbn) {
     {
         if(library[i].isbn === isbn)
         {
+            console.log(i);
             return i;
         }
     }
@@ -29,7 +30,7 @@ function findBook(library, isbn) {
 
 function printLibrary(library){
     for(let i = 0; i < library.length;i++){
-        console.log(`Book #${i+1}, Title: ${library[i].title}, Author: ${library[i].author}, Year: ${library[i].year}`)
+        console.log(`Book #${i+1}, ISBN: ${library[i].isbn} Title: ${library[i].title}, Author: ${library[i].author}, Year: ${library[i].year}`)
     }
 }
 
