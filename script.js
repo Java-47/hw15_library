@@ -20,7 +20,6 @@ function findBook(library, isbn) {
     {
         if(library[i].isbn === isbn)
         {
-            console.log(i);
             return i;
         }
     }
