@@ -28,9 +28,17 @@ function findBook(library, isbn) {
 }
 
 function printLibrary(library){
-    for(let i = 0; i < library.length;i++){
-        console.log(`Book #${i+1}, ISBN: ${library[i].isbn} Title: ${library[i].title}, Author: ${library[i].author}, Year: ${library[i].year}`)
-    }
+    let ol_tag = document.createElement('ol');
+    ol_tag.id = "ol";
+    root.appendChild(ol_tag);
+    for(let i = 0; i< library.length; i++)
+    {
+        const newBook = document.createElement('li');
+        const text = document.createTextNode(library[i].toString());
+        newBook.appendChild(text);
+        newBook.style.fontSize = '1.6em';
+        ol.appendChild(newBook);
+    }  
 }
 
 function Book(isbn, title, author, year) {
